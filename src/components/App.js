@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import ProductList from './ProductList';
+// eslint-disable-next-line import/namespace
 import Panel from './Panel';
 import ProfileDetails from './ProfileDetails';
 import Mailbox from './Mailbox';
 import Dropdown from './Dropdown';
 import TechList from './TechList';
 import products from '../products.json';
+import Button from './Button/Button';
 
 const technologies = [
   { id: 'id-1', name: 'JS' },
@@ -15,12 +17,16 @@ const technologies = [
 ];
 
 const App = () => (
-  <div>
+  <Fragment>
+    <Button />
+
     <TechList items={technologies} />
 
     <Dropdown isOpen />
 
-    <Mailbox unreadMessages={[1, 2, 3]} />
+    <Mailbox
+      unreadMessages={['Loldd', 'Wararara', 'Kissisisis', 'lovve lovevv']}
+    />
 
     <Panel title="Some title">
       <ProfileDetails name="Mango" email="mango@mail.com" />
@@ -29,7 +35,7 @@ const App = () => (
     <Panel title="Top Products">
       <ProductList items={products} />
     </Panel>
-  </div>
+  </Fragment>
 );
 
 export default App;
