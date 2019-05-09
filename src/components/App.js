@@ -1,41 +1,23 @@
-import React, { Fragment } from 'react';
-import ProductList from './ProductList';
-// eslint-disable-next-line import/namespace
-import Panel from './Panel';
-import ProfileDetails from './ProfileDetails';
-import Mailbox from './Mailbox';
-import Dropdown from './Dropdown';
-import TechList from './TechList';
-import products from '../products.json';
-import Button from './Button/Button';
+/* eslint-disable */
+import React, { Component } from 'react';
+import SignUpForm from './SighUpForm/SignUpForm';
 
-const technologies = [
-  { id: 'id-1', name: 'JS' },
-  { id: 'id-2', name: 'React' },
-  { id: 'id-3', name: 'React Router' },
-  { id: 'id-4', name: 'Redux' },
-];
+export default class App extends Component {
+  state = {
+    items: [],
+  };
 
-const App = () => (
-  <Fragment>
-    <Button />
+  handleSignUp = credentials => {
+    console.log(credentials);
+  };
 
-    <TechList items={technologies} />
+  render() {
+    return (
+      <div>
+        <SignUpForm onSignUp={this.handleSignUp} />
+      </div>
+    );
+  }
+}
 
-    <Dropdown isOpen />
-
-    <Mailbox
-      unreadMessages={['Loldd', 'Wararara', 'Kissisisis', 'lovve lovevv']}
-    />
-
-    <Panel title="Some title">
-      <ProfileDetails name="Mango" email="mango@mail.com" />
-    </Panel>
-
-    <Panel title="Top Products">
-      <ProductList items={products} />
-    </Panel>
-  </Fragment>
-);
-
-export default App;
+// export default App;
